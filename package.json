@@ -1,0 +1,21 @@
+{
+  "name": "fetch-city-position",
+  "version": "1.0.0",
+  "description": "fetch city lat & lng data from baidu map api ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "map",
+    "city",
+    "lbs"
+  ],
+  "author": "Cash",
+  "license": "ISC",
+  "dependencies": {
+    "jsdom": "^16.0.1",
+    "request": "^2.88.0",
+    "url-parse": "^1.4.7"
+  }
+}
