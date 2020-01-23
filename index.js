@@ -2,20 +2,25 @@ const request = require("request")
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const healthCommissionUrls = require('./cities_health_commission_department_website.json')
+const Url = require("url")
 
 const keywords = ["新型冠状病毒", "通报", "情况", "病例", "疫情", "日期", "最新"];
+var allLatestLocalUpdate = []
 
 // Test URL "http://wsjkw.gd.gov.cn/zwyw_yqxx/content/post_2877905.html" 
 
 // Get into a specific local HC department news list and get original DOM info  
 const checkNewsList = function (url){
+  const parsedUrl = Url.parse(url)
   request(url, function (error, response, body) {
     console.error('error:', error); // Print the error if one occurred
     if(!error){
       // console.log('body:', body); // Print the HTML for the Google homepage.
       // console.log('final string :', finalString);
       const dom = new JSDOM(body);
-      checkLatestNewsUrl(dom.window.document);
+      dom.window.href = parsedUrl.href
+      checkLatestNewsUrl(dom.window);
+      // console.log( "url host: ", parsedUrl.host)
       //console.log(dom.window.document.documentElement.textContent); // "Hello world"
     }else{
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
@@ -25,10 +30,10 @@ const checkNewsList = function (url){
 }
 
 // Extract the latest virus news and save the URL
-const checkLatestNewsUrl = function (doc){
+const checkLatestNewsUrl = function (main){
   var matchAnchors = []
-  for( var i in doc.getElementsByTagName("a") ){
-    var anchor = doc.getElementsByTagName("a")[i] 
+  for( var i in main.document.getElementsByTagName("a") ){
+    var anchor = main.document.getElementsByTagName("a")[i] 
     var anchorText = anchor.innerHTML;
     var keywordCount = 0;
     if( anchorText){
@@ -47,11 +52,16 @@ const checkLatestNewsUrl = function (doc){
         }
     }
   }
-  console.log( matchAnchors[0].href )
+  // console.log(  matchAnchors[0].href )
+  console.log("final url: " , completeHref( main.href, matchAnchors[0].href ) ) 
 }
 
-const completeHref = function (href){
-
+const completeHref = function (preHref, href){
+  if( href.lastIndexOf("http://") < 0 ){
+    return preHref +  href; 
+  }else{
+    return href 
+  }
 }
 
 // Extract all local department HC news 
