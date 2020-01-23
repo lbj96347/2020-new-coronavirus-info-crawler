@@ -20,11 +20,12 @@ const checkNewsList = function (url){
       // console.log('final string :', finalString);
       const dom = new JSDOM(body);
       dom.window.href = parsedUrl.href
+      dom.window.host = parsedUrl.host
       checkLatestNewsUrl(dom.window);
       // console.log( "url host: ", parsedUrl.host)
       //console.log(dom.window.document.documentElement.textContent); // "Hello world"
     }else{
-      console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+      // console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
       /*
       if( error.code === 'ESOCKETTIMEDOUT' ){
         checkLocalNewsUpdateStep = checkLocalNewsUpdateStep + 1  
@@ -44,9 +45,9 @@ const checkLatestNewsUrl = function (main){
   var matchAnchors = []
   for( var i in main.document.getElementsByTagName("a") ){
     var anchor = main.document.getElementsByTagName("a")[i] 
-    var anchorText = anchor.innerHTML;
+    var anchorText = anchor.textContent;
     var keywordCount = 0;
-    if( anchorText){
+    if( anchorText ){
         keywords.map(function( word, key){
             if(anchorText.search(word) > 0){
                 keywordCount = keywordCount + 1;
@@ -57,7 +58,7 @@ const checkLatestNewsUrl = function (main){
             // 有可能不具备年，月，日这个条件，但是已经是一个新闻
             // 只需要取数据中，第一个元素的 href 即可
             // href 中如果不具备 http 头的话，那么需要获取该 domain 下的 url 并补充回去
-            console.log("锚点含有时间信息：",  anchorText.match(/\b(年|月|日)\b/g) )
+            // console.log("锚点含有时间信息：",  anchorText.match(/\b(年|月|日)\b/g) )
             matchAnchors.push(anchor)
         }
     }
@@ -65,7 +66,7 @@ const checkLatestNewsUrl = function (main){
   // console.log(  matchAnchors[0].href )
   // console.log("final url: " , completeHref( main.href, matchAnchors[0].href ) ) 
   if( matchAnchors.length > 0 ){
-    allLatestLocalUpdate.push( completeHref( main.href, matchAnchors[0].href ) ) 
+    allLatestLocalUpdate.push( completeHref( main, matchAnchors[0].href ) ) 
     checkLocalNewsUpdateStep = checkLocalNewsUpdateStep + 1      
     // checkNewsList(healthCommissionUrls[checkLocalNewsUpdateStep]["url"])
     GetLatestNews(checkLocalNewsUpdateStep)
@@ -76,11 +77,24 @@ const checkLatestNewsUrl = function (main){
   }
 }
 
-const completeHref = function (preHref, href){
+// main is the same as dom.window object. 
+// for geting href or host info
+const completeHref = function (main, href){
   if( href.lastIndexOf("http://") < 0 ){
     // 居然还有可能出现 .. 的情况 
-    return preHref +  href; 
+    // 也会有前方是 host + html 静态网页的情况
+    // 还出现了「疫情通报」就是一个按钮
+    if( href.lastIndexOf("./") == 0 ){
+      return main.href + href.replace("./","/")
+    }else if( href.lastIndexOf("..") == 0 ){
+      return "http://" + main.host + "/" + href.replace("..","")
+    }else if( main.href !=  ("http://" + main.host + "/")  ){
+      return "http://" + main.host + "/" + href
+    }else{
+      return main.href +  href; 
+    }
   }else{
+    console.log("straight out href", href)
     return href 
   }
 }
