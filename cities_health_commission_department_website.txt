@@ -1,31 +1,31 @@
-"http://wjw.beijing.gov.cn/xwzx_20031/wnxw/"  北京市卫生健康委员会
-"http://wsjs.tj.gov.cn/"  天津市卫生健康委员会
-"http://wsjkw.hebei.gov.cn/index.do?templet=new_list&cid=14"  河北省卫生健康委员会
-"http://wjw.shanxi.gov.cn/xwzxl02/index.hrh"  山西省卫生健康委员会
-"http://wjw.nmg.gov.cn/xwzx/gzdt/index.shtml"  内蒙古自治区卫生健康委员会
-"http://wsjk.ln.gov.cn/wst_wsjskx/"  辽宁省卫生健康委员会
-"http://wsjkw.jl.gov.cn/xwzx/"  吉林省卫生健康委员会
-"http://wsjkw.hlj.gov.cn/index.php/Home/News/all/typeid/33"  黑龙江省卫生健康委员
-"http://wsjkw.sh.gov.cn/xwfb/index.html"  上海市卫生健康委员会
-"http://wjw.jiangsu.gov.cn/col/col7290/index.html"  江苏省卫生健康委员会
-"http://www.zjwjw.gov.cn/col/col1202101/index.html"  浙江省卫生健康委员会
-"http://wjw.ah.gov.cn/news_list_450_1.html"  安徽省卫生健康委员会
-"http://wjw.fujian.gov.cn/xxgk/gzdt/wsjsyw/"  福建省卫生健康委员会
-"http://hc.jiangxi.gov.cn/xwzx/wjxw/index.shtml"  江西省卫生健康委员会
-"http://wsjkw.shandong.gov.cn/mrsl/"  山东省卫生健康委员会
-"http://www.hnwsjsw.gov.cn/channels/177.shtml"  河南省卫生健康委员会
-"http://wjw.hubei.gov.cn/fbjd/dtyw/"  湖北省卫生健康委员会
-"http://wjw.hunan.gov.cn/wjw/xxgk/gzdt/zyxw_1/index.html"  湖南省卫生健康委员会
-"http://www.nhc.gov.cn/wjw/dfzfwz/201906/dea72b93576f469f8a42439b6f1890ef.shtml"  广东省卫生健康委员会
-"http://wsjkw.gxzf.gov.cn/gzdt/bt/"  广西壮族自治区卫生健康委员会
-"http://wst.hainan.gov.cn/swjw/index.html"  海南省卫生健康委员会
-"http://wsjkw.cq.gov.cn/tzgg/"  重庆市卫生健康委员会
-"http://wsjkw.sc.gov.cn/scwsjkw/gggs/tygl.shtml"  四川省卫生健康委员会
-"http://www.gzhfpc.gov.cn/xwzx_500663/zwyw/"  贵州省卫生健康委员会
-"http://ynswsjkw.yn.gov.cn/wjwWebsite/web/col?id=UU157976428326282067&cn=xxgzbd&pcn=ztlm&pid=UU145102906505319731"  云南省卫生健康委员会
-"http://wjw.xizang.gov.cn/xwzx/wsjkdt/"  西藏自治区卫生健康委员会
-"http://sxwjw.shaanxi.gov.cn/col/col9/index.html"  陕西省卫生健康委员会
-"http://wsjk.gansu.gov.cn/channel/10910/index.html"  甘肃省卫生健康委员会
-"https://wsjkw.qinghai.gov.cn/ztbd/yqjk/index.html"  青海省卫生健康委员会
-"http://wsjkw.nx.gov.cn/xwzx1/tzgg1.htm"  宁夏回族自治区卫生健康委员会
-"http://www.xjhfpc.gov.cn/xwzx.htm"  新疆维吾尔自治区卫生健康委员会
+[{"url":"http://wjw.beijing.gov.cn/xwzx_20031/wnxw/","deparment":"北京市卫生健康委员会"}
+,{"url":"http://wsjs.tj.gov.cn/","deparment":"天津市卫生健康委员会"}
+,{"url":"http://wsjkw.hebei.gov.cn/index.do?templet=new_list&cid=14","deparment":"河北省卫生健康委员会"}
+,{"url":"http://wjw.shanxi.gov.cn/xwzxl02/index.hrh","deparment":"山西省卫生健康委员会"}
+,{"url":"http://wjw.nmg.gov.cn/xwzx/gzdt/index.shtml","deparment":"内蒙古自治区卫生健康委员会"}
+,{"url":"http://wsjk.ln.gov.cn/wst_wsjskx/","deparment":"辽宁省卫生健康委员会"}
+,{"url":"http://wsjkw.jl.gov.cn/xwzx/","deparment":"吉林省卫生健康委员会"}
+,{"url":"http://wsjkw.hlj.gov.cn/index.php/Home/News/all/typeid/33","deparment":"黑龙江省卫生健康委员"}
+,{"url":"http://wsjkw.sh.gov.cn/xwfb/index.html","deparment":"上海市卫生健康委员会"}
+,{"url":"http://wjw.jiangsu.gov.cn/col/col7290/index.html","deparment":"江苏省卫生健康委员会"}
+,{"url":"http://www.zjwjw.gov.cn/col/col1202101/index.html","deparment":"浙江省卫生健康委员会"}
+,{"url":"http://wjw.ah.gov.cn/news_list_450_1.html","deparment":"安徽省卫生健康委员会"}
+,{"url":"http://wjw.fujian.gov.cn/xxgk/gzdt/wsjsyw/","deparment":"福建省卫生健康委员会"}
+,{"url":"http://hc.jiangxi.gov.cn/xwzx/wjxw/index.shtml","deparment":"江西省卫生健康委员会"}
+,{"url":"http://wsjkw.shandong.gov.cn/mrsl/","deparment":"山东省卫生健康委员会"}
+,{"url":"http://www.hnwsjsw.gov.cn/channels/177.shtml","deparment":"河南省卫生健康委员会"}
+,{"url":"http://wjw.hubei.gov.cn/fbjd/dtyw/","deparment":"湖北省卫生健康委员会"}
+,{"url":"http://wjw.hunan.gov.cn/wjw/xxgk/gzdt/zyxw_1/index.html","deparment":"湖南省卫生健康委员会"}
+,{"url":"http://www.nhc.gov.cn/wjw/dfzfwz/201906/dea72b93576f469f8a42439b6f1890ef.shtml","deparment":"广东省卫生健康委员会"}
+,{"url":"http://wsjkw.gxzf.gov.cn/gzdt/bt/","deparment":"广西壮族自治区卫生健康委员会"}
+,{"url":"http://wst.hainan.gov.cn/swjw/index.html","deparment":"海南省卫生健康委员会"}
+,{"url":"http://wsjkw.cq.gov.cn/tzgg/","deparment":"重庆市卫生健康委员会"}
+,{"url":"http://wsjkw.sc.gov.cn/scwsjkw/gggs/tygl.shtml","deparment":"四川省卫生健康委员会"}
+,{"url":"http://www.gzhfpc.gov.cn/xwzx_500663/zwyw/","deparment":"贵州省卫生健康委员会"}
+,{"url":"http://ynswsjkw.yn.gov.cn/wjwWebsite/web/col?id=UU157976428326282067&cn=xxgzbd&pcn=ztlm&pid=UU145102906505319731","deparment":"云南省卫生健康委员会"}
+,{"url":"http://wjw.xizang.gov.cn/xwzx/wsjkdt/","deparment":"西藏自治区卫生健康委员会"}
+,{"url":"http://sxwjw.shaanxi.gov.cn/col/col9/index.html","deparment":"陕西省卫生健康委员会"}
+,{"url":"http://wsjk.gansu.gov.cn/channel/10910/index.html","deparment":"甘肃省卫生健康委员会"}
+,{"url":"https://wsjkw.qinghai.gov.cn/ztbd/yqjk/index.html","deparment":"青海省卫生健康委员会"}
+,{"url":"http://wsjkw.nx.gov.cn/xwzx1/tzgg1.htm","deparment":"宁夏回族自治区卫生健康委员会"}
+,{"url":"http://www.xjhfpc.gov.cn/xwzx.htm","deparment":"新疆维吾尔自治区卫生健康委员会"}]
