@@ -20,7 +20,7 @@ const composeCitylist = function (){
 // console.log( composeCitylist().length );
 
 const crawlerAction = function (cityName){
-  var requestUrl = parse('http://api.map.baidu.com/geocoder?key='+[YOUR_BAIDU_MAP_KEY]+'&address='+ cityName +'&output=json', true)
+  var requestUrl = parse('http://api.map.baidu.com/geocoder?key='+[YOUR_KEY]+'&address='+ cityName +'&output=json', true)
   request(requestUrl.href, function (error, response, body) {
     console.error('error:', error); // Print the error if one occurred
     if(!error){
@@ -28,6 +28,7 @@ const crawlerAction = function (cityName){
       var cityPosition = JSON.parse(body)["result"]["location"]
       console.log([cityPosition["lat"], cityPosition["lng"]]);
       singleCityPosition = [cityPosition["lat"], cityPosition["lng"]]; 
+      count = count + 1
       return [cityPosition["lat"], cityPosition["lng"]]; 
     }else{
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
@@ -42,10 +43,9 @@ const requestQueue = function (index){
   // if( index < 5 ){
     crawlerAction( allCities[index] )
     newCityList.push({"city": allCities[index], "position": singleCityPosition})
-    count = count + 1
     setTimeout(function (){
       requestQueue(count)
-    }, 2000)
+    }, 1000)
   }else{
     console.log( newCityList )
     fs.writeFile("./city_position.json", JSON.stringify(newCityList), function(err) {
