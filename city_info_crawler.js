@@ -20,7 +20,7 @@ const composeCitylist = function (){
 // console.log( composeCitylist().length );
 
 const crawlerAction = function (cityName){
-  var requestUrl = parse('http://api.map.baidu.com/geocoder?key=558da712275afdee3bd5d032bbac5ba9&address='+ cityName +'&output=json', true)
+  var requestUrl = parse('http://api.map.baidu.com/geocoder?key='+[YOUR_KEY]+'&address='+ cityName +'&output=json', true)
   request(requestUrl.href, function (error, response, body) {
     console.error('error:', error); // Print the error if one occurred
     if(!error){
