@@ -3,11 +3,13 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const healthCommissionUrls = require('./cities_health_commission_department_website.json')
 const cityList = require('./city_position.json')
+const newCityList = require('./new_city_position.json')
 const provinceList = require('./province_list.json')
 const Url = require("url")
 const fs = require('fs');
 
 const dxyUrl = "https://3g.dxy.cn/newh5/view/pneumonia"
+const newCityGeoList = []
 
 const requestAction = function (url){
   request(url, {timeout: 10000} , function (error, response, body) {
@@ -33,6 +35,7 @@ const requestAction = function (url){
 }
 
 const extractData = function(data){
+  getCityGeo()
   var pureCitiesList = []
   var geoCitiesList = []
   data.map(function ( province, key ){
@@ -48,25 +51,13 @@ const extractData = function(data){
     // console.log( pureCitiesList )
     pureCitiesList.map(function ( city, key){
       var cityPosition;
-      for( var i in cityList){
-        if( cityList[i]["city"] == city["cityName"] ){
-          cityPosition = cityList[i]["position"]
+      for( var i in newCityGeoList ){
+        if( newCityGeoList [i]["city"] == city["cityName"] ){
+          cityPosition = newCityGeoList[i]["position"]
+          city["position"] = cityPosition
+          geoCitiesList.push( city ) 
         }
       }
-      if( cityPosition ){
-        city["position"] = cityPosition
-        geoCitiesList.push( city ) 
-      }
-      /*
-      geoCitiesList.push({
-        "cityName": city["cityName"],
-        "confirmedCount": city["confirmedCount"],
-        "suspectedCount": city["suspectedCount"] ,
-        "curedCount": city["curedCount"],
-        "deadCount": city["deadCount"]
-        "position": cityPosition
-      }) 
-      */
     });
   }
   
@@ -84,3 +75,15 @@ const makeJSONFile = function (cityList){
 }
 
 requestAction(dxyUrl)
+
+const getCityGeo = function(){
+  var keys = Object.keys(newCityList)
+  keys.map( function( cityName, key){
+     newCityGeoList.push({
+       "city": cityName, 
+       "position": [newCityList[cityName]["lat"] , 
+           newCityList[cityName]["lon"] ] 
+       })
+  })
+}
+
