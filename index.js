@@ -31,7 +31,6 @@ const requestAction = function (url){
       }
     }
   });
-
 }
 
 const extractData = function(data){
@@ -39,11 +38,22 @@ const extractData = function(data){
   var pureCitiesList = []
   var geoCitiesList = []
   data.map(function ( province, key ){
-    if( province["cities"] ){
-      var cities = province["cities"]
-      cities.map( function( city, key ){
-        pureCitiesList.push(city)
-      })
+    var pName = province["provinceName"] 
+    if( pName == "北京市" || pName == "天津市" || pName == "上海市" || pName == "重庆市" ) {
+      // console.log( province );
+      var reconstructCity = { "cityName": province["provinceShortName"],
+       "confirmedCount": province["confirmedCount"],
+       "suspectedCount": province["suspectedCount"],
+       "curedCount": province["curedCount"],
+       "deadCount": province["deadCount"] }
+      pureCitiesList.push(reconstructCity)
+    }else{
+      if( province["cities"] ){
+        var cities = province["cities"]
+        cities.map( function( city, key ){
+          pureCitiesList.push(city)
+        })
+      }
     }
   })
 
@@ -74,7 +84,6 @@ const makeJSONFile = function (cityList){
   })
 }
 
-requestAction(dxyUrl)
 
 const getCityGeo = function(){
   var keys = Object.keys(newCityList)
@@ -87,3 +96,5 @@ const getCityGeo = function(){
   })
 }
 
+
+requestAction(dxyUrl)
