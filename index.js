@@ -58,7 +58,6 @@ const extractData = function(data){
   })
 
   if( pureCitiesList.length > 1 ){
-    // console.log( pureCitiesList )
     pureCitiesList.map(function ( city, key){
       var cityPosition;
       for( var i in newCityGeoList ){
@@ -76,7 +75,24 @@ const extractData = function(data){
 }
 
 const makeJSONFile = function (cityList){
-  fs.writeFile("./new_virus_data.json", JSON.stringify(cityList), function(err) {
+  var now = new Date()
+  var timestamp = now.getFullYear() + "-" +  (now.getUTCMonth()+1) + "-" +now.getDate() + " " + now.getHours() + ":" + now.getMinutes()
+  var outputJSON = {
+    "updateTimestamp": timestamp,
+    "data": [{
+        "nation": "China",
+        "sources": cityList
+      },{
+        "nation": "South Korea",
+        "sources": [{
+          "city": "仁川 Incheon",
+          "confirmedCount": 1,
+          "number": 1,
+          "position": [37.456200, 126.705444]
+        }] 
+      }]
+  }
+  fs.writeFile("./virus-data.json", JSON.stringify(outputJSON), function(err) {
     if(err) {
         return console.log(err);
     }
@@ -95,6 +111,5 @@ const getCityGeo = function(){
        })
   })
 }
-
 
 requestAction(dxyUrl)
